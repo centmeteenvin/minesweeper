@@ -1,7 +1,7 @@
 package game;
 
-public class BlockBomb<T> extends Block<T> {
-    protected BlockBomb(Coordinate<T> coordinate) {
+public class BlockBomb extends Block {
+    protected BlockBomb(Coordinate coordinate) {
         super(coordinate);
     }
 }

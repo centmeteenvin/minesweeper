@@ -1,11 +1,11 @@
 package game;
 
-public class BlockNormal<T> extends Block<T> {
+public class BlockNormal extends Block {
 
     private int numberOfBombs;
     private boolean numberOfBombsIsSet = false;
 
-    protected BlockNormal(Coordinate<T> coordinate) {
+    protected BlockNormal(Coordinate coordinate) {
         super(coordinate);
     }
 

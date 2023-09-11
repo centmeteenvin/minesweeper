@@ -1,13 +1,13 @@
 package game;
 
-public abstract class Block<T> {
-    private final Coordinate<T> coordinate;
+public abstract class Block {
+    private final Coordinate coordinate;
 
-    protected Block(Coordinate<T> coordinate) {
+    protected Block(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
 
-    public Coordinate<T> getCoordinate() {
+    public Coordinate getCoordinate() {
         return coordinate;
     }
 }

@@ -1,16 +1,25 @@
 package game;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import game.Block;
 
-public abstract class Board<T> {
-    protected final Map<T, Map<T, Block<T>>> blocks = new HashMap<>();
+public class Board {
+    protected final Map<Integer, Map<Integer, Block>> blocks = new HashMap<>();
     protected Rules rules;
 
-    public abstract Block<T> relativeTo(Block<T> block, int deltaX, int deltaY);
-
+    public Block relativeTo(Block block, int deltaX, int deltaY) {
+        Coordinate coordinate = block.getCoordinate();
+        int newX = coordinate.x() + deltaX;
+        int newY = coordinate.y() + deltaY;
+        if (!blocks.containsKey(newY))
+            return null;
+        if (!blocks.get(newY).containsKey(newX))
+            return null;
+        return blocks.get(newY).get(newX);
+    }
     void setRules(Rules rules) {
         this.rules = rules;
     }
@@ -25,12 +34,12 @@ public abstract class Board<T> {
         return blocks.size();
     }
 
-    public Block<T> get(T x, T y) {
+    public Block get(int x, int y) {
         return Optional.ofNullable(blocks.get(y))
                 .map(row -> row.get(x)).orElse(null);
     }
 
-    public Map<T, Block<T>> getColumns() {
+    public Collection<Map<Integer, Block>> getColumns() {
         return blocks.values();
     }
 }

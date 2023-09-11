@@ -2,7 +2,7 @@ package game;
 
 public class GameFactory {
     public static Game create() {
-        Board<?> board = new BoardInteger();
+        Board board = new Board();
         Rules rules = new RulesNormal();
         board.setRules(rules);
         rules.setBoard(board);

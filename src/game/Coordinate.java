@@ -1,6 +1,4 @@
 package game;
 
-public interface Coordinate<T> {
-    T getX();
-    T getY();
+public record Coordinate(int x, int y) {
 }
